@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sravya Tech Rentals – IT & AV Equipment Rentals, Bangalore</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --font-body: 'Cinzel', serif;
+    --font-display: 'Cinzel', serif;
+    --font-weight-body: 600;
+    --font-weight-display: 700;
+    --blue: #1A56DB;
+    --blue-dark: #1240A8;
+    --blue-light: #EEF3FF;
+    --teal: #0891B2;
+    --teal-light: #E0F7FA;
+    --orange: #F47920;
+    --white: #FFFFFF;
+    --bg: #F8F9FC;
+    --bg2: #F0F4FF;
+    --border: #E2E8F4;
+    --text: #1A1F36;
+    --muted: #6B7A99;
+    --light-muted: #9AA5BE;
+    --radius: 14px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--white); color: var(--text); font-family: var(--font-body); font-weight: var(--font-weight-body); overflow-x: hidden; }
+  button, input, textarea, select { font-family: inherit; font-weight: inherit; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 15px 6vw;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 1px 12px rgba(26,86,219,0.07);
+  }
+  .nav-logo { display: flex; flex-direction: column; line-height: 1.1; }
+  .nav-logo-top {
+    font-family: var(--font-display);
+    font-size: 1.35rem; font-weight: var(--font-weight-display); color: var(--blue); letter-spacing: 0.04em;
+  }
+  .nav-logo-sub { font-size: 0.7rem; font-weight: var(--font-weight-display); color: var(--teal); letter-spacing: 0.12em; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: var(--font-weight-body); transition: color 0.2s; }
+  .nav-links a:hover { color: var(--blue); }
+  .nav-cta {
+    background: var(--blue); color: #fff; border: none; padding: 10px 22px; border-radius: 8px;
+    font-family: var(--font-body); font-weight: var(--font-weight-body); font-size: 0.9rem;
+    cursor: pointer; text-decoration: none; transition: background 0.2s, transform 0.15s;
+  }
+  .nav-cta:hover { background: var(--blue-dark); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    position: relative; overflow: hidden; padding: 130px 6vw 80px;
+    background: linear-gradient(135deg, #EEF3FF 0%, #F5F8FF 55%, #E0F7FA 100%);
+  }
+  .hero-blob-1 {
+    position: absolute; width: 550px; height: 550px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(26,86,219,0.09) 0%, transparent 70%);
+    top: -120px; right: -100px; z-index: 0;
+  }
+  .hero-blob-2 {
+    position: absolute; width: 320px; height: 320px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(8,145,178,0.07) 0%, transparent 70%);
+    bottom: 20px; left: 5%; z-index: 0;
+  }
+  .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr auto; gap: 60px; align-items: center; width: 100%; }
+  .hero-content { max-width: 650px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--blue-light); border: 1px solid rgba(26,86,219,0.2);
+    padding: 6px 16px; border-radius: 40px;
+    font-size: 0.76rem; font-weight: var(--font-weight-body); letter-spacing: 0.1em;
+    color: var(--blue); text-transform: uppercase; margin-bottom: 24px;
+  }
+  .hero-badge::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--blue); animation: pulse 1.8s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 5vw, 4.4rem); font-weight: var(--font-weight-display); line-height: 1.1;
+    color: var(--text); margin-bottom: 20px;
+  }
+  .hero h1 em { color: var(--blue); font-style: normal; }
+  .hero h1 strong { color: var(--teal); }
+  .hero p { font-size: 1.06rem; line-height: 1.75; color: var(--muted); max-width: 520px; margin-bottom: 34px; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--blue); color: #fff; padding: 13px 28px; border-radius: 10px;
+    font-weight: var(--font-weight-body); font-size: 0.94rem; text-decoration: none;
+    transition: all 0.2s; border: none; cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--blue-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,86,219,0.25); }
+  .btn-outline {
+    background: transparent; color: var(--text); padding: 13px 28px; border-radius: 10px;
+    font-weight: var(--font-weight-body); font-size: 0.94rem; text-decoration: none;
+    border: 1.5px solid var(--border); cursor: pointer; transition: all 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-light); }
+  .hero-stats { display: flex; gap: 32px; margin-top: 44px; padding-top: 32px; border-top: 1px solid rgba(26,86,219,0.12); flex-wrap: wrap; }
+  .stat-item h3 { font-family: var(--font-display); font-size: 1.9rem; font-weight: var(--font-weight-display); color: var(--blue); }
+  .stat-item p { font-size: 0.78rem; color: var(--muted); margin-top: 3px; letter-spacing: 0.05em; text-transform: uppercase; }
+
+  /* Hero floating card */
+  .hero-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 20px; padding: 28px 24px;
+    box-shadow: 0 16px 48px rgba(26,86,219,0.12);
+    min-width: 220px; text-align: center;
+  }
+  .hero-card-icon { font-size: 2.5rem; margin-bottom: 10px; }
+  .hero-card h4 { font-weight: var(--font-weight-display); color: var(--text); font-size: 1rem; margin-bottom: 6px; }
+  .hero-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+  .hero-card-divider { height: 1px; background: var(--border); margin: 16px 0; }
+
+  /* ── SECTION BASE ── */
+  section { padding: 88px 6vw; }
+  .section-label { display: inline-block; font-size: 0.72rem; font-weight: var(--font-weight-body); letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange); margin-bottom: 12px; }
+  .section-title { font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.9rem); font-weight: var(--font-weight-display); color: var(--text); line-height: 1.18; margin-bottom: 13px; }
+  .section-sub { font-size: 1rem; color: var(--muted); line-height: 1.72; max-width: 500px; margin-bottom: 50px; }
+
+  /* ── WHO WE ARE ── */
+  #about { background: var(--bg); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .about-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+  .about-chip {
+    background: var(--white); border: 1.5px solid var(--border);
+    padding: 9px 18px; border-radius: 40px;
+    font-size: 0.86rem; font-weight: var(--font-weight-body); color: var(--text);
+    transition: all 0.2s;
+  }
+  .about-chip:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-light); }
+  .about-highlight {
+    background: var(--blue-light); border-left: 4px solid var(--blue);
+    border-radius: 0 12px 12px 0; padding: 20px 24px; margin-top: 28px;
+  }
+  .about-highlight p { font-size: 0.95rem; color: var(--blue-dark); font-weight: var(--font-weight-body); line-height: 1.65; }
+  .about-image-box {
+    background: linear-gradient(135deg, var(--blue-light), var(--teal-light));
+    border-radius: 20px; padding: 40px;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .about-stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .about-stat-card {
+    background: var(--white); border-radius: 14px; padding: 22px 18px;
+    text-align: center; box-shadow: 0 4px 16px rgba(26,86,219,0.08);
+  }
+  .about-stat-card .num { font-family: var(--font-display); font-size: 2rem; font-weight: var(--font-weight-body); color: var(--blue); }
+  .about-stat-card .lbl { font-size: 0.78rem; color: var(--muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .about-stat-full {
+    background: var(--blue); border-radius: 14px; padding: 20px 24px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .about-stat-full .icon { font-size: 2rem; }
+  .about-stat-full .info h4 { font-weight: var(--font-weight-display); color: #fff; font-size: 1rem; }
+  .about-stat-full .info p { font-size: 0.82rem; color: rgba(255,255,255,0.7); margin-top: 2px; }
+
+  /* ── SERVICES / PRODUCTS ── */
+  #services { background: var(--white); }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .scard {
+    background: var(--bg); border: 1.5px solid var(--border);
+    border-radius: var(--radius); overflow: hidden;
+    transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+  }
+  .scard:hover { transform: translateY(-6px); border-color: var(--blue); box-shadow: 0 12px 40px rgba(26,86,219,0.12); }
+  .scard-header {
+    padding: 28px 26px 20px;
+    background: linear-gradient(135deg, var(--blue-light), #f0f6ff);
+    display: flex; align-items: center; gap: 14px;
+  }
+  .scard-icon { font-size: 2.2rem; }
+  .scard-header h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: var(--font-weight-display); color: var(--text); }
+  .scard-body { padding: 20px 26px 26px; }
+  .scard-types { margin-bottom: 14px; }
+  .scard-types h5 { font-size: 0.75rem; font-weight: var(--font-weight-display); color: var(--orange); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
+  .type-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .type-list li {
+    display: flex; align-items: flex-start; gap: 8px;
+    font-size: 0.88rem; color: var(--text); line-height: 1.5;
+  }
+  .type-list li::before { content: '▸'; color: var(--blue); font-size: 0.7rem; margin-top: 3px; flex-shrink: 0; }
+  .type-list li strong { color: var(--text); }
+  .scard-divider { height: 1px; background: var(--border); margin: 16px 0; }
+  .scard-uses h5 { font-size: 0.75rem; font-weight: var(--font-weight-display); color: var(--teal); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+  .use-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .use-tag {
+    background: var(--white); border: 1px solid var(--border);
+    padding: 4px 11px; border-radius: 30px;
+    font-size: 0.78rem; font-weight: var(--font-weight-body); color: var(--muted);
+  }
+
+  /* ── BRANDS ── */
+  #brands { background: var(--bg2); }
+  .brands-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; margin-bottom: 52px; }
+  .brands-logos-section { }
+  .brands-cat { margin-bottom: 34px; }
+  .brands-cat:last-child { margin-bottom: 0; }
+  .brands-cat-title {
+    font-size: 0.8rem; font-weight: var(--font-weight-body); text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--blue); margin-bottom: 18px;
+  }
+  .brands-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 34px;
+    align-items: stretch;
+  }
+  #brands .brands-grid:last-of-type { margin-bottom: 0; }
+  .brand-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(244,247,255,0.96));
+    border: 1.5px solid var(--border);
+    border-radius: 18px;
+    min-height: 0;
+    overflow: hidden;
+    transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.04);
+  }
+  .brand-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--blue);
+    box-shadow: 0 18px 40px rgba(26,86,219,0.12);
+  }
+  .brand-card-media {
+    height: 78px;
+    width: 88px;
+    background: var(--white);
+    border: 1px solid rgba(203, 213, 225, 0.9);
+    border-radius: 16px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .brand-card-media img {
+    max-height: 42px;
+    max-width: 148px;
+    object-fit: contain;
+    display: block;
+  }
+  .brand-card-media img.brand-logo--icon {
+    max-height: 52px;
+    max-width: 52px;
+    border-radius: 14px;
+  }
+  .brand-toggle {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    display: block;
+    font: inherit;
+    padding: 18px 20px;
+    text-align: left;
+  }
+  .brand-toggle-top {
+    display: grid;
+    grid-template-columns: 104px minmax(0, 1fr) 40px;
+    gap: 16px;
+    align-items: start;
+  }
+  .brand-card-copy {
+    min-width: 0;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+  }
+  .brand-card h4 {
+    font-size: 1.02rem;
+    font-weight: var(--font-weight-display);
+    color: var(--text);
+    margin-bottom: 0;
+  }
+  .brand-card p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.62;
+    margin-bottom: 0;
+    max-width: 68ch;
+  }
+  .brand-toggle-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.76rem;
+    font-weight: var(--font-weight-body);
+    color: var(--blue);
+    letter-spacing: 0.02em;
+    margin-top: auto;
+    padding-top: 4px;
+  }
+  .brand-toggle-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(26,86,219,0.18);
+    background: rgba(26,86,219,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--blue);
+    font-weight: var(--font-weight-body);
+    font-size: 1.2rem;
+    transition: transform 0.2s, background 0.2s, border-color 0.2s;
+    align-self: center;
+  }
+  .brand-toggle-icon::before { content: '+'; }
+  .brand-card.is-open .brand-toggle-icon::before { content: '-'; }
+  .brand-toggle:hover .brand-toggle-icon,
+  .brand-toggle:focus-visible .brand-toggle-icon {
+    background: rgba(26,86,219,0.12);
+    border-color: rgba(26,86,219,0.28);
+  }
+  .brand-toggle:focus-visible {
+    outline: 2px solid rgba(26,86,219,0.3);
+    outline-offset: 2px;
+    border-radius: 16px;
+  }
+  .brand-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+  }
+  .brand-card.is-open {
+    border-color: var(--blue);
+    box-shadow: 0 18px 40px rgba(26,86,219,0.12);
+  }
+  .brand-card.is-open .brand-panel { grid-template-rows: 1fr; }
+  .brand-panel-inner { min-height: 0; overflow: hidden; }
+  .brand-panel-content {
+    border-top: 1px solid var(--border);
+    padding: 20px;
+    display: grid;
+    gap: 18px;
+  }
+  .brand-detail-image-wrap {
+    background: var(--white);
+    border: 1px solid rgba(203, 213, 225, 0.9);
+    border-radius: 16px;
+    padding: 20px;
+  }
+  .brand-detail-image {
+    width: 100%;
+    max-height: 160px;
+    object-fit: contain;
+    display: block;
+  }
+  .brand-detail-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+  }
+  .brand-detail-gallery .brand-detail-image-wrap {
+    padding: 12px;
+    min-height: 156px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .brand-detail-gallery .brand-detail-image {
+    height: 132px;
+    max-height: none;
+    object-fit: contain;
+  }
+  .brand-detail-block h5 {
+    font-size: 0.78rem;
+    font-weight: var(--font-weight-display);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--blue);
+    margin-bottom: 8px;
+  }
+  .brand-detail-block p { margin-bottom: 0; }
+  .brand-advantages {
+    list-style: none;
+    display: grid;
+    gap: 8px;
+  }
+  .brand-advantages li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 0.86rem;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+  .brand-advantages li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--orange);
+  }
+  .brand-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    background: rgba(26,86,219,0.08);
+    color: var(--blue);
+    border: 1px solid rgba(26,86,219,0.14);
+    border-radius: 999px;
+    padding: 6px 11px;
+    font-size: 0.74rem;
+    font-weight: var(--font-weight-body);
+    letter-spacing: 0.02em;
+  }
+
+  /* ── WHY US ── */
+  #why { background: var(--white); }
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+  .why-card {
+    background: var(--bg); border: 1.5px solid var(--border);
+    border-radius: var(--radius); padding: 30px 26px;
+    transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+  }
+  .why-card:hover { transform: translateY(-5px); border-color: var(--blue); box-shadow: 0 10px 36px rgba(26,86,219,0.1); }
+  .why-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: var(--blue-light); display: flex; align-items: center;
+    justify-content: center; font-size: 1.4rem; margin-bottom: 18px;
+  }
+  .why-card h4 { font-size: 1.05rem; font-weight: var(--font-weight-display); color: var(--text); margin-bottom: 8px; }
+  .why-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+
+  /* ── PROCESS ── */
+  .process-section { background: var(--blue); }
+  .process-section .section-label { color: rgba(255,255,255,0.55); }
+  .process-section .section-title { color: #fff; }
+  .process-section .section-sub { color: rgba(255,255,255,0.68); }
+  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+  .process-steps::after { content: ''; position: absolute; top: 34px; left: 12.5%; right: 12.5%; height: 1px; background: rgba(255,255,255,0.2); }
+  .step { text-align: center; padding: 24px 16px; }
+  .step-num {
+    width: 50px; height: 50px; border-radius: 50%;
+    background: rgba(255,255,255,0.12); border: 2px solid rgba(255,255,255,0.45);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px;
+    font-family: var(--font-display); font-size: 1.15rem; font-weight: var(--font-weight-body);
+    color: #fff; position: relative; z-index: 1;
+  }
+  .step h4 { font-size: 0.96rem; font-weight: var(--font-weight-display); color: #fff; margin-bottom: 7px; }
+  .step p { font-size: 0.83rem; color: rgba(255,255,255,0.65); line-height: 1.6; }
+
+  /* ── PLANS ── */
+  #plans { background: var(--bg); }
+  .plans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .plan-card {
+    background: var(--white); border: 1.5px solid var(--border);
+    border-radius: var(--radius); padding: 32px 28px;
+    text-align: center; transition: all 0.25s;
+    position: relative;
+  }
+  .plan-card.featured {
+    background: var(--blue); border-color: var(--blue);
+    box-shadow: 0 12px 40px rgba(26,86,219,0.3);
+  }
+  .plan-card.featured h3, .plan-card.featured .plan-duration,
+  .plan-card.featured p, .plan-card.featured .plan-feature { color: #fff !important; }
+  .plan-card.featured .plan-icon { background: rgba(255,255,255,0.15); }
+  .plan-badge {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--orange); color: #fff;
+    padding: 4px 14px; border-radius: 30px; font-size: 0.72rem; font-weight: var(--font-weight-body);
+    letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap;
+  }
+  .plan-icon { width: 56px; height: 56px; border-radius: 14px; background: var(--blue-light); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin: 0 auto 16px; }
+  .plan-card h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: var(--font-weight-display); color: var(--text); margin-bottom: 4px; }
+  .plan-duration { font-size: 0.82rem; color: var(--muted); margin-bottom: 20px; }
+  .plan-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; margin-bottom: 18px; }
+  .plan-features { list-style: none; text-align: left; display: flex; flex-direction: column; gap: 8px; }
+  .plan-feature { display: flex; align-items: center; gap: 8px; font-size: 0.86rem; color: var(--text); }
+  .plan-feature::before { content: '✓'; color: var(--teal); font-weight: var(--font-weight-body); font-size: 0.85rem; }
+  .plan-card.featured .plan-feature::before { color: rgba(255,255,255,0.8); }
+
+  /* ── CTA BAND ── */
+  .cta-band { background: linear-gradient(135deg, var(--orange) 0%, #d95f00 100%); padding: 56px 6vw; text-align: center; }
+  .cta-band h2 { font-family: var(--font-display); font-size: clamp(1.7rem, 3vw, 2.5rem); font-weight: var(--font-weight-display); color: #fff; margin-bottom: 12px; }
+  .cta-band p { color: rgba(255,255,255,0.85); font-size: 1rem; margin-bottom: 26px; }
+  .cta-band-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .cta-band a.white { background: #fff; color: var(--orange); padding: 13px 30px; border-radius: 10px; font-weight: var(--font-weight-body); font-size: 0.95rem; text-decoration: none; display: inline-block; transition: transform 0.2s, box-shadow 0.2s; }
+  .cta-band a.white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
+  .cta-band a.outline-white { background: transparent; color: #fff; padding: 13px 30px; border-radius: 10px; font-weight: var(--font-weight-body); font-size: 0.95rem; text-decoration: none; display: inline-block; border: 2px solid rgba(255,255,255,0.6); transition: all 0.2s; }
+  .cta-band a.outline-white:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--white); }
+  .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  .contact-info h2 { font-family: var(--font-display); font-size: 2.1rem; font-weight: var(--font-weight-display); color: var(--text); margin-bottom: 12px; }
+  .contact-info > p { font-size: 0.97rem; color: var(--muted); line-height: 1.72; margin-bottom: 32px; }
+  .contact-detail { display: flex; gap: 14px; margin-bottom: 18px; align-items: flex-start; }
+  .contact-detail-icon { width: 42px; height: 42px; border-radius: 10px; background: var(--blue-light); border: 1px solid rgba(26,86,219,0.15); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+  .contact-detail-text h5 { font-size: 0.73rem; color: var(--light-muted); text-transform: uppercase; letter-spacing: 0.09em; margin-bottom: 3px; }
+  .contact-detail-text p, .contact-detail-text a { font-size: 0.93rem; color: var(--text); font-weight: var(--font-weight-body); line-height: 1.5; text-decoration: none; }
+  .contact-detail-text a:hover { color: var(--blue); }
+  .form-box { background: var(--bg); border: 1px solid var(--border); border-radius: 18px; padding: 34px; }
+  .form-box h3 { font-family: var(--font-display); font-size: 1.35rem; font-weight: var(--font-weight-display); color: var(--text); margin-bottom: 22px; }
+  .contact-form { display: flex; flex-direction: column; gap: 14px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label { font-size: 0.79rem; color: var(--muted); font-weight: var(--font-weight-body); letter-spacing: 0.04em; }
+  .form-group input, .form-group textarea, .form-group select {
+    background: var(--white); border: 1.5px solid var(--border); border-radius: 9px;
+    padding: 11px 14px; color: var(--text); font-family: var(--font-body);
+    font-size: 0.91rem; outline: none; transition: border-color 0.2s;
+  }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: var(--light-muted); }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--blue); }
+  .form-group textarea { resize: vertical; min-height: 95px; }
+  .form-note { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
+  .form-submit { background: var(--blue); color: #fff; border: none; border-radius: 10px; padding: 13px; font-family: var(--font-body); font-weight: var(--font-weight-body); font-size: 0.96rem; cursor: pointer; transition: background 0.2s, transform 0.15s; }
+  .form-submit:hover { background: var(--blue-dark); transform: translateY(-1px); }
+
+  /* ── FOOTER ── */
+  footer { background: #0F172A; color: #fff; padding: 52px 6vw 26px; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 36px; margin-bottom: 40px; }
+  .footer-logo-top { font-family: var(--font-display); font-size: 1.3rem; font-weight: var(--font-weight-display); color: #fff; }
+  .footer-logo-sub { font-size: 0.65rem; font-weight: var(--font-weight-display); color: var(--teal); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; }
+  .footer-brand p { color: #94A3B8; font-size: 0.88rem; line-height: 1.7; margin-bottom: 20px; max-width: 270px; }
+  .footer-col h5 { font-weight: var(--font-weight-display); color: #fff; margin-bottom: 14px; font-size: 0.9rem; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .footer-col ul a { color: #94A3B8; text-decoration: none; font-size: 0.86rem; transition: color 0.2s; }
+  .footer-col ul a:hover { color: var(--orange); }
+  .footer-bottom { border-top: 1px solid #1E293B; padding-top: 22px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .footer-bottom p { font-size: 0.8rem; color: #64748B; }
+  .footer-bottom span { color: var(--orange); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-card { display: none; }
+    .plans-grid { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 860px) {
+    .about-grid, .brands-intro, .contact-wrap { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .process-steps::after { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+    nav .nav-links { display: none; }
+    .plans-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 520px) {
+    .footer-top { grid-template-columns: 1fr; }
+    .hero-stats { gap: 18px; }
+    .about-stat-row { grid-template-columns: 1fr 1fr; }
+    .brand-toggle-top { grid-template-columns: 1fr; }
+    .brand-card-media { width: 100%; max-width: 120px; }
+    .brand-toggle-icon { width: 34px; height: 34px; }
+    .brand-toggle { padding: 16px; }
+    .brand-panel-content { padding: 16px; }
+    .brand-detail-gallery { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-top">SRAVYA</div>
+    <div class="nav-logo-sub">Tech Rentals</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#brands">Brands</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#plans">Plans</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Book Now</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="home">
+  <div class="hero-blob-1"></div>
+  <div class="hero-blob-2"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">Bangalore's IT & AV Rental Partner</div>
+      <h1>Your One-Stop <em>IT & AV</em> <strong>Rental</strong> Solution</h1>
+      <p>Sravya Tech Rentals provides reliable and affordable IT and Audio-Visual equipment on rent — for corporate offices, schools, events, seminars and more. On-time delivery, installation & quick support.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Book Equipment →</a>
+        <a href="#services" class="btn-outline">See All Services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><h3>4+</h3><p>Equipment Types</p></div>
+        <div class="stat-item"><h3>100%</h3><p>Tested & Ready</p></div>
+        <div class="stat-item"><h3>Fast</h3><p>On-Time Delivery</p></div>
+        <div class="stat-item"><h3>BLR</h3><p>Bangalore Based</p></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-icon">🖨️</div>
+      <h4>Printers</h4>
+      <p>Laser, Inkjet, All-in-One</p>
+      <div class="hero-card-divider"></div>
+      <div class="hero-card-icon">📽️</div>
+      <h4>Projectors</h4>
+      <p>Business, Education, Events</p>
+      <div class="hero-card-divider"></div>
+      <div class="hero-card-icon">🔊</div>
+      <h4>Speakers & Screens</h4>
+      <p>Complete AV setups</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHO WE ARE ── -->
+<section id="about">
+  <div class="about-grid">
+    <div>
+      <div class="section-label">Who We Are</div>
+      <h2 class="section-title">Reliable Rentals for Every Occasion</h2>
+      <p style="color:var(--muted);line-height:1.75;font-size:1rem;margin-bottom:24px;">Sravya Tech Rentals provides reliable and affordable IT and Audio-Visual equipment on rent across Bangalore. We serve a wide range of clients with quality equipment, on-time delivery, proper installation and quick support.</p>
+      <div class="about-chips">
+        <div class="about-chip">🏢 Corporate Offices & Trainings</div>
+        <div class="about-chip">🎓 Schools & Colleges</div>
+        <div class="about-chip">🎤 Meetings & Seminars</div>
+        <div class="about-chip">🎉 Events & Conferences</div>
+        <div class="about-chip">📅 Short-term Rentals</div>
+        <div class="about-chip">📆 Long-term Rentals</div>
+      </div>
+      <div class="about-highlight">
+        <p>We focus on <strong>on-time delivery, proper installation and quick support</strong> — so you can focus on what matters most.</p>
+      </div>
+    </div>
+    <div class="about-image-box">
+      <div class="about-stat-row">
+        <div class="about-stat-card">
+          <div class="num">4+</div>
+          <div class="lbl">Equipment Categories</div>
+        </div>
+        <div class="about-stat-card">
+          <div class="num">3</div>
+          <div class="lbl">Rental Plan Types</div>
+        </div>
+      </div>
+      <div class="about-stat-row">
+        <div class="about-stat-card">
+          <div class="num">100%</div>
+          <div class="lbl">Tested Before Rental</div>
+        </div>
+        <div class="about-stat-card">
+          <div class="num">BLR</div>
+          <div class="lbl">Bangalore Based</div>
+        </div>
+      </div>
+      <div class="about-stat-full">
+        <div class="icon">📞</div>
+        <div class="info">
+          <h4>Quick Response Guaranteed</h4>
+          <p>Easy to reach on phone / WhatsApp anytime</p>
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section id="services">
+  <div class="section-label">What We Offer</div>
+  <h2 class="section-title">Our Rental Equipment</h2>
+  <p class="section-sub">Well-maintained, tested equipment delivered and installed at your location — ready to use from day one.</p>
+  <div class="services-grid">
+
+    <!-- Printers -->
+    <div class="scard">
+      <div class="scard-header">
+        <div class="scard-icon">🖨️</div>
+        <h3>Printer Rentals</h3>
+      </div>
+      <div class="scard-body">
+        <div class="scard-types">
+          <h5>Types Available</h5>
+          <ul class="type-list">
+            <li><strong>Laser Printers</strong> — Fast and high-volume printing</li>
+            <li><strong>Inkjet Printers</strong> — Colour documents and graphics</li>
+            <li><strong>All-in-One Printers</strong> — Print, scan and copy</li>
+            <li><strong>Network / Wi-Fi Printers</strong> — Office and team usage</li>
+          </ul>
+        </div>
+        <div class="scard-divider"></div>
+        <div class="scard-uses">
+          <h5>Ideal For</h5>
+          <div class="use-tags">
+            <span class="use-tag">Offices & Startups</span>
+            <span class="use-tag">Training Centres</span>
+            <span class="use-tag">Short-term Projects</span>
+            <span class="use-tag">Bulk Printing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projectors -->
+    <div class="scard">
+      <div class="scard-header">
+        <div class="scard-icon">📽️</div>
+        <h3>Projector Rentals</h3>
+      </div>
+      <div class="scard-body">
+        <div class="scard-types">
+          <h5>Types Available</h5>
+          <ul class="type-list">
+            <li><strong>Business Projectors</strong> — Presentations, meetings, trainings</li>
+            <li><strong>Education Projectors</strong> — Classrooms, seminars, workshops</li>
+            <li><strong>Event Projectors</strong> — Functions, ceremonies, indoor events</li>
+          </ul>
+        </div>
+        <div class="scard-divider"></div>
+        <div class="scard-uses">
+          <h5>Features</h5>
+          <div class="use-tags">
+            <span class="use-tag">High Brightness</span>
+            <span class="use-tag">HDMI / VGA</span>
+            <span class="use-tag">Laptop Support</span>
+            <span class="use-tag">Media Devices</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screens -->
+    <div class="scard">
+      <div class="scard-header">
+        <div class="scard-icon">🖥️</div>
+        <h3>Screen Rentals</h3>
+      </div>
+      <div class="scard-body">
+        <div class="scard-types">
+          <h5>Types Available</h5>
+          <ul class="type-list">
+            <li><strong>Tripod Screens</strong> — Easy to move and set up</li>
+            <li><strong>Wall-Mount Screens</strong> — Fixed installation for offices/classrooms</li>
+          </ul>
+        </div>
+        <div class="scard-divider"></div>
+        <div class="scard-uses">
+          <h5>Ideal For</h5>
+          <div class="use-tags">
+            <span class="use-tag">Conference Rooms</span>
+            <span class="use-tag">Training Halls</span>
+            <span class="use-tag">Home Events</span>
+            <span class="use-tag">Small Gatherings</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Speakers -->
+    <div class="scard">
+      <div class="scard-header">
+        <div class="scard-icon">🔊</div>
+        <h3>Speaker & Mic Rentals</h3>
+      </div>
+      <div class="scard-body">
+        <div class="scard-types">
+          <h5>Audio Equipment</h5>
+          <ul class="type-list">
+            <li><strong>Speakers</strong> — For small to medium gatherings</li>
+            <li><strong>Microphones</strong> — Clear sound for all events</li>
+          </ul>
+        </div>
+        <div class="scard-divider"></div>
+        <div class="scard-uses">
+          <h5>Services Included</h5>
+          <div class="use-tags">
+            <span class="use-tag">Setup & Sound Check</span>
+            <span class="use-tag">Usage Guidance</span>
+            <span class="use-tag">Issue Support</span>
+            <span class="use-tag">Family Functions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── BRANDS ── -->
+<section id="brands">
+  <div class="section-label">Trusted Brands</div>
+  <h2 class="section-title">Equipment from Leading Brands</h2>
+  <p class="section-sub">We rent well-maintained equipment from the world's most trusted IT and AV brands — so you get quality every time.</p>
+
+  <div class="brands-cat-title">🖨️ Printer Brands</div>
+  <div class="brands-grid">
+    <article class="brand-card">
+      <button class="brand-toggle" type="button" aria-expanded="false" aria-controls="brand-panel-canon">
+        <div class="brand-toggle-top">
+          <div class="brand-card-media">
+            <img src="assets/brands/canon.svg" alt="Canon logo" loading="lazy"/>
+          </div>
+          <div class="brand-card-copy">
+            <h4>Canon</h4>
+            <p>Trusted for sharp documents, smooth scan-copy workflows, and dependable daily office printing.</p>
+            <span class="brand-chip">Office printers</span>
+            <div class="brand-toggle-hint">Click to view details</div>
+          </div>
+          <span class="brand-toggle-icon" aria-hidden="true"></span>
+        </div>
+      </button>
+      <div class="brand-panel" id="brand-panel-canon">
+        <div class="brand-panel-inner">
+          <div class="brand-panel-content">
+            <div class="brand-detail-gallery">
+              <div class="brand-detail-image-wrap">
+                <img class="brand-detail-image" src="assets/brand-photos/canon-printer-1.webp" alt="Canon printer photo 1" loading="lazy"/>
+              </div>
+              <div class="brand-detail-image-wrap">
+                <img class="brand-detail-image" src="assets/brand-photos/canon-printer-2.webp" alt="Canon printer photo 2" loading="lazy"/>
+              </div>
+              <div class="brand-detail-image-wrap">
+                <img class="brand-detail-image" src="assets/brand-photos/canon-printer-3.webp" alt="Canon printer photo 3" loading="lazy"/>
+              </div>
+            </div>
+            <div class="brand-detail-block">
+              <h5>What It Is</h5>
+              <p>Canon is a global imaging and printing brand widely used for office printers, multifunction devices, and document handling.</p>
+            </div>
+            <div class="brand-detail-block">
+              <h5>Top Models</h5>
+              <ul class="brand-advantages">
+                <li>imageRUNNER 2425</li>
+                <li>imageRUNNER 2630i</li>
+              </ul>
+            </div>
+            <div class="brand-detail-block">
+              <h5>Key Advantages</h5>
+              <ul class="brand-advantages">
+                <li>Sharp document print quality</li>
+                <li>Reliable scan and copy support</li>
+                <li>Good fit for daily office workloads</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="brand-card">
+      <button class="brand-toggle" type="button" aria-expanded="false" aria-controls="brand-panel-epson-print">
+        <div class="brand-toggle-top">
+          <div class="brand-card-media">
+            <img src="assets/brands/epson.svg" alt="Epson logo" loading="lazy"/>
+          </div>
+          <div class="brand-card-copy">
+            <h4>Epson</h4>
+            <p>Known for cost-efficient printing, clean color output, and reliable machines for routine work.</p>
+            <span class="brand-chip">Eco printing</span>
+            <div class="brand-toggle-hint">Click to view details</div>
+          </div>
+          <span class="brand-toggle-icon" aria-hidden="true"></span>
+        </div>
+      </button>
+      <div class="brand-panel" id="brand-panel-epson-print">
+        <div class="brand-panel-inner">
+          <div class="brand-panel-content">
+            <div class="brand-detail-gallery">
+              <div class="brand-detail-image-wrap">
+                <img class="brand-detail-image" src="assets/brand-photos/epson-printer-1.webp" alt="Epson printer photo 1" loading="lazy"/>
+              </div>
+              <div class="brand-detail-image-wrap">
+                <img class="brand-detail-image" src="assets/brand-photos/epson-printer-2.webp" alt="Epson printer photo 2" loading="lazy"/>
+              </div>
+            </div>
+            <div class="brand-detail-block">
+              <h5>What It Is</h5>
+              <p>Epson is a trusted print brand used for inkjet and office devices that balance running cost, quality, and everyday reliability.</p>
+            </div>
+            <div class="brand-detail-block">
+              <h5>Top Models</h5>
+              <ul class="brand-advantages">
+                <li>EcoTank L6490</li>
+                <li>EcoTank L15150</li>
+              </ul>
+            </div>
+            <div class="brand-detail-block">
+              <h5>Key Advantages</h5>
+              <ul class="brand-advantages">
+                <li>Cost-efficient long-term printing</li>
+                <li>Clean text and color output</li>
+                <li>Dependable for routine office use</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="brand-card">
+      <button class="brand-toggle" type="button" aria-expanded="false" aria-controls="brand-panel-brother">
+        <div class="brand-toggle-top">
+          <div class="brand-card-media">
+            <img class="brand-logo--icon" src="assets/brands/brother.png" alt="Brother logo" loading="lazy"/>
+          </div>
+          <div class="brand-card-copy">
+            <h4>Brother</h4>
+            <p>A strong choice for durable monochrome and multifunction printers in busy office environments.</p>
+            <span class="brand-chip">Heavy-duty use</span>
+            <div class="brand-toggle-hint">Click to view details</div>
+          </div>
+          <span class="brand-toggle-icon" aria-hidden="true"></span>
+        </div>
+      </button>
+      <div class="brand-panel" id="brand-panel-brother">
+        <div class="brand-panel-inner">
+          <div class="brand-panel-content">
+            <div class="brand-detail-gallery">
+              <div class="brand-detail-image-wrap">
+                <img class="brand-detail-image" src="assets/brand-photos/brother-printer-1.webp" alt="Brother printer photo 1" loading="lazy"/>
+              </div>
+              <div class="brand-detail-image-wrap">
+                <img class="brand-detail-image" src="assets/brand-photos/brother-printer-2.webp" alt="Brother printer photo 2" loading="lazy"/>
+              </div>
+            </div>
+            <div class="brand-detail-block">
+              <h5>What It Is</h5>
+              <p>Brother is a practical printer brand often chosen for office-focused monochrome and multifunction printing requirements.</p>
+            </div>
+            <div class="brand-detail-block">
+              <h5>Top Models</h5>
+              <ul class="brand-advantages">
+                <li>MFC-L5710DW</li>
+                <li>MFC-L5915DW</li>
+              </ul>
+            </div>
+            <div class="brand-detail-block">
+              <h5>Key Advantages</h5>
+              <ul class="brand-advantages">
+                <li>Durable machines for busy teams</li>
+                <li>Strong monochrome print performance</li>
+                <li>Useful print, scan, and copy features</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="brand-card">
+      <button class="brand-toggle" type="button" aria-expanded="false" aria-controls="brand-panel-xerox">
+        <div class="brand-toggle-top">
+          <div class="brand-card-media">
+            <img class="brand-logo--icon" src="assets/brands/xerox.png" alt="Xerox logo" loading="lazy"/>
+          </div>
+          <div class="brand-card-copy">
+            <h4>Xerox</h4>
+            <p>Well suited for high-volume document printing and copying where consistency matters most.</p>
+            <span class="brand-chip">Bulk printing</span>
+            <div class="brand-toggle-hint">Click to view details</div>
+          </div>
+          <span class="brand-toggle-icon" aria-hidden="true"></span>
+        </div>
+      </button>
+      <div class="brand-panel" id="brand-panel-xerox">
+        <div class="brand-panel-inner">
+          <div class="brand-panel-content">
+            <div class="brand-detail-gallery">
+              <div class="brand-detail-image-wrap">
+                <img class="brand-detail-image" src="assets/brand-photos/xerox-printer-1.webp" alt="Xerox printer photo 1" loading="lazy"/>
+              </div>
+              <div class="brand-detail-image-wrap">
+                <img class="brand-detail-image" src="assets/brand-photos/xerox-printer-2.webp" alt="Xerox printer photo 2" loading="lazy"/>
+              </div>
+            </div>
+            <div class="brand-detail-block">
+              <h5>What It Is</h5>
+              <p>Xerox is a well-known document technology brand associated with office copiers, printers, and high-volume print workflows.</p>
+            </div>
+            <div class="brand-detail-block">
+              <h5>Top Models</h5>
+              <ul class="brand-advantages">
+                <li>B225</li>
+                <li>VersaLink C415</li>
+              </ul>
+            </div>
+            <div class="brand-detail-block">
+              <h5>Key Advantages</h5>
+              <ul class="brand-advantages">
+                <li>Strong performance for larger print volumes</li>
+                <li>Consistent copy and document handling</li>
+                <li>Suitable for business printing environments</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div class="brands-cat-title">📽️ Projector Brands</div>
+  <div class="brands-grid">
+    <article class="brand-card">
+      <button class="brand-toggle" type="button" aria-expanded="false" aria-controls="brand-panel-epson-projector">
+        <div class="brand-toggle-top">
+          <div class="brand-card-media">
+            <img src="assets/brands/epson.svg" alt="Epson logo" loading="lazy"/>
+          </div>
+          <div class="brand-card-copy">
+            <h4>Epson</h4>
+            <p>Bright, presentation-friendly projectors that work well for meetings, classes, and training sessions.</p>
+            <span class="brand-chip">Bright visuals</span>
+            <div class="brand-toggle-hint">Click to view details</div>
+          </div>
+          <span class="brand-toggle-icon" aria-hidden="true"></span>
+        </div>
+      </button>
+      <div class="brand-panel" id="brand-panel-epson-projector">
+        <div class="brand-panel-inner">
+          <div class="brand-panel-content">
+            <div class="brand-detail-gallery">
+              <div class="brand-detail-image-wrap">
+                <img class="brand-detail-image" src="assets/brand-photos/epson-projector-1.webp" alt="Epson projector photo 1" loading="lazy"/>
+              </div>
+              <div class="brand-detail-image-wrap">
+                <img class="brand-detail-image" src="assets/brand-photos/epson-projector-2.webp" alt="Epson projector photo 2" loading="lazy"/>
+              </div>
+            </div>
+            <div class="brand-detail-block">
+              <h5>What It Is</h5>
+              <p>Epson is also a trusted projector brand used for business presentations, classrooms, and indoor events needing clear visuals.</p>
+            </div>
+            <div class="brand-detail-block">
+              <h5>Top Models</h5>
+              <ul class="brand-advantages">
+                <li>EB-E01</li>
+                <li>EB-X49</li>
+              </ul>
+            </div>
+            <div class="brand-detail-block">
+              <h5>Key Advantages</h5>
+              <ul class="brand-advantages">
+                <li>Strong brightness for presentation spaces</li>
+                <li>Clear visuals for training and meetings</li>
+                <li>Reliable choice for daily projector use</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="brand-card">
+      <button class="brand-toggle" type="button" aria-expanded="false" aria-controls="brand-panel-acer">
+        <div class="brand-toggle-top">
+          <div class="brand-card-media">
+            <img src="assets/brands/acer.svg" alt="Acer logo" loading="lazy"/>
+          </div>
+          <div class="brand-card-copy">
+            <h4>Acer</h4>
+            <p>Good value projectors for everyday presentations, demos, and standard office viewing needs.</p>
+            <span class="brand-chip">Everyday use</span>
+            <div class="brand-toggle-hint">Click to view details</div>
+          </div>
+          <span class="brand-toggle-icon" aria-hidden="true"></span>
+        </div>
+      </button>
+      <div class="brand-panel" id="brand-panel-acer">
+        <div class="brand-panel-inner">
+          <div class="brand-panel-content">
+            <div class="brand-detail-gallery">
+              <div class="brand-detail-image-wrap">
+                <img class="brand-detail-image" src="assets/brand-photos/acer-projector-1.webp" alt="Acer projector photo 1" loading="lazy"/>
+              </div>
+              <div class="brand-detail-image-wrap">
+                <img class="brand-detail-image" src="assets/brand-photos/acer-projector-2.webp" alt="Acer projector photo 2" loading="lazy"/>
+              </div>
+            </div>
+            <div class="brand-detail-block">
+              <h5>What It Is</h5>
+              <p>Acer is a technology brand that also offers projector models suited for office demos, presentations, and regular business use.</p>
+            </div>
+            <div class="brand-detail-block">
+              <h5>Top Models</h5>
+              <ul class="brand-advantages">
+                <li>X1228i</li>
+                <li>X1328Wi</li>
+              </ul>
+            </div>
+            <div class="brand-detail-block">
+              <h5>Key Advantages</h5>
+              <ul class="brand-advantages">
+                <li>Good value for routine presentation needs</li>
+                <li>Simple solution for everyday office use</li>
+                <li>Works well for meetings and demos</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div class="brands-cat-title">🔊 Speaker / Audio Brands</div>
+  <div class="brands-grid">
+    <article class="brand-card">
+      <button class="brand-toggle" type="button" aria-expanded="false" aria-controls="brand-panel-jbl">
+        <div class="brand-toggle-top">
+          <div class="brand-card-media">
+            <img src="assets/brands/jbl.svg" alt="JBL logo" loading="lazy"/>
+          </div>
+          <div class="brand-card-copy">
+            <h4>JBL</h4>
+            <p>Delivers punchy sound and dependable output for events, announcements, and small gatherings.</p>
+            <span class="brand-chip">Event sound</span>
+            <div class="brand-toggle-hint">Click to view details</div>
+          </div>
+          <span class="brand-toggle-icon" aria-hidden="true"></span>
+        </div>
+      </button>
+      <div class="brand-panel" id="brand-panel-jbl">
+        <div class="brand-panel-inner">
+          <div class="brand-panel-content">
+            <div class="brand-detail-gallery">
+              <div class="brand-detail-image-wrap">
+                <img class="brand-detail-image" src="assets/brand-photos/jbl-speaker-1.webp" alt="JBL speaker photo 1" loading="lazy"/>
+              </div>
+              <div class="brand-detail-image-wrap">
+                <img class="brand-detail-image" src="assets/brand-photos/jbl-speaker-2.webp" alt="JBL speaker photo 2" loading="lazy"/>
+              </div>
+            </div>
+            <div class="brand-detail-block">
+              <h5>What It Is</h5>
+              <p>JBL is a popular audio brand used for speakers and sound systems in events, announcements, and small venue setups.</p>
+            </div>
+            <div class="brand-detail-block">
+              <h5>Top Models</h5>
+              <ul class="brand-advantages">
+                <li>EON712</li>
+                <li>PartyBox 310</li>
+              </ul>
+            </div>
+            <div class="brand-detail-block">
+              <h5>Key Advantages</h5>
+              <ul class="brand-advantages">
+                <li>Punchy sound for gatherings and events</li>
+                <li>Reliable output for speech and music</li>
+                <li>Suitable for portable audio setups</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="brand-card">
+      <button class="brand-toggle" type="button" aria-expanded="false" aria-controls="brand-panel-sony">
+        <div class="brand-toggle-top">
+          <div class="brand-card-media">
+            <img src="assets/brands/sony.svg" alt="Sony logo" loading="lazy"/>
+          </div>
+          <div class="brand-card-copy">
+            <h4>Sony</h4>
+            <p>Trusted for balanced audio performance and clean sound quality across professional AV setups.</p>
+            <span class="brand-chip">Clear audio</span>
+            <div class="brand-toggle-hint">Click to view details</div>
+          </div>
+          <span class="brand-toggle-icon" aria-hidden="true"></span>
+        </div>
+      </button>
+      <div class="brand-panel" id="brand-panel-sony">
+        <div class="brand-panel-inner">
+          <div class="brand-panel-content">
+            <div class="brand-detail-gallery">
+              <div class="brand-detail-image-wrap">
+                <img class="brand-detail-image" src="assets/brand-photos/sony-speaker-1.webp" alt="Sony speaker photo 1" loading="lazy"/>
+              </div>
+              <div class="brand-detail-image-wrap">
+                <img class="brand-detail-image" src="assets/brand-photos/sony-speaker-2.webp" alt="Sony speaker photo 2" loading="lazy"/>
+              </div>
+            </div>
+            <div class="brand-detail-block">
+              <h5>What It Is</h5>
+              <p>Sony is a global electronics brand known for dependable audio products used in AV setups and professional presentations.</p>
+            </div>
+            <div class="brand-detail-block">
+              <h5>Top Models</h5>
+              <ul class="brand-advantages">
+                <li>SRS-XV800</li>
+                <li>MHC-V73D</li>
+              </ul>
+            </div>
+            <div class="brand-detail-block">
+              <h5>Key Advantages</h5>
+              <ul class="brand-advantages">
+                <li>Clean and balanced sound output</li>
+                <li>Dependable brand for AV use</li>
+                <li>Good fit for speech and media playback</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="brand-card">
+      <button class="brand-toggle" type="button" aria-expanded="false" aria-controls="brand-panel-philips">
+        <div class="brand-toggle-top">
+          <div class="brand-card-media">
+            <img class="brand-logo--icon" src="assets/brands/philips.png" alt="Philips logo" loading="lazy"/>
+          </div>
+          <div class="brand-card-copy">
+            <h4>Philips</h4>
+            <p>Practical audio equipment known for simple operation and dependable performance.</p>
+            <span class="brand-chip">User friendly</span>
+            <div class="brand-toggle-hint">Click to view details</div>
+          </div>
+          <span class="brand-toggle-icon" aria-hidden="true"></span>
+        </div>
+      </button>
+      <div class="brand-panel" id="brand-panel-philips">
+        <div class="brand-panel-inner">
+          <div class="brand-panel-content">
+            <div class="brand-detail-gallery">
+              <div class="brand-detail-image-wrap">
+                <img class="brand-detail-image" src="assets/brand-photos/philips-speaker-1.webp" alt="Philips speaker photo 1" loading="lazy"/>
+              </div>
+              <div class="brand-detail-image-wrap">
+                <img class="brand-detail-image" src="assets/brand-photos/philips-speaker-2.webp" alt="Philips speaker photo 2" loading="lazy"/>
+              </div>
+            </div>
+            <div class="brand-detail-block">
+              <h5>What It Is</h5>
+              <p>Philips is an established electronics brand offering practical audio and AV products for simple, dependable use.</p>
+            </div>
+            <div class="brand-detail-block">
+              <h5>Top Models</h5>
+              <ul class="brand-advantages">
+                <li>TAX5206/94</li>
+                <li>TAX5708/94</li>
+              </ul>
+            </div>
+            <div class="brand-detail-block">
+              <h5>Key Advantages</h5>
+              <ul class="brand-advantages">
+                <li>Easy to use for common audio needs</li>
+                <li>Dependable performance for indoor events</li>
+                <li>Practical choice for straightforward setups</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="brand-card">
+      <button class="brand-toggle" type="button" aria-expanded="false" aria-controls="brand-panel-panasonic">
+        <div class="brand-toggle-top">
+          <div class="brand-card-media">
+            <img src="assets/brands/panasonic.svg" alt="Panasonic logo" loading="lazy"/>
+          </div>
+          <div class="brand-card-copy">
+            <h4>Panasonic</h4>
+            <p>Durable AV gear that performs reliably for meetings, family functions, and indoor events.</p>
+            <span class="brand-chip">Reliable AV</span>
+            <div class="brand-toggle-hint">Click to view details</div>
+          </div>
+          <span class="brand-toggle-icon" aria-hidden="true"></span>
+        </div>
+      </button>
+      <div class="brand-panel" id="brand-panel-panasonic">
+        <div class="brand-panel-inner">
+          <div class="brand-panel-content">
+            <div class="brand-detail-gallery">
+              <div class="brand-detail-image-wrap">
+                <img class="brand-detail-image" src="assets/brand-photos/panasonic-speaker-1.webp" alt="Panasonic speaker photo 1" loading="lazy"/>
+              </div>
+              <div class="brand-detail-image-wrap">
+                <img class="brand-detail-image" src="assets/brand-photos/panasonic-speaker-2.webp" alt="Panasonic speaker photo 2" loading="lazy"/>
+              </div>
+            </div>
+            <div class="brand-detail-block">
+              <h5>What It Is</h5>
+              <p>Panasonic is a dependable AV and electronics brand used in sound systems, displays, and event-ready equipment.</p>
+            </div>
+            <div class="brand-detail-block">
+              <h5>Top Models</h5>
+              <ul class="brand-advantages">
+                <li>SC-UA7</li>
+                <li>SC-TMAX50</li>
+              </ul>
+            </div>
+            <div class="brand-detail-block">
+              <h5>Key Advantages</h5>
+              <ul class="brand-advantages">
+                <li>Reliable performance in AV setups</li>
+                <li>Suitable for meetings and indoor functions</li>
+                <li>Durable brand for regular equipment use</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ── WHY US ── -->
+<section id="why">
+  <div class="section-label">Why Choose Us</div>
+  <h2 class="section-title">The Sravya Tech Rentals Difference</h2>
+  <p class="section-sub">We go beyond just providing equipment — we ensure your event or work runs without a hitch.</p>
+  <div class="why-grid">
+    <div class="why-card"><div class="why-icon">📌</div><h4>Reliable Equipment</h4><p>Well-maintained and tested before every rental — so you never face surprises on the day of use.</p></div>
+    <div class="why-card"><div class="why-icon">⏰</div><h4>On-Time Delivery</h4><p>We value your time and schedule. Equipment arrives when you need it, fully ready to use.</p></div>
+    <div class="why-card"><div class="why-icon">👨‍🔧</div><h4>Installation Support</h4><p>Setup and basic demo provided at your location — we make sure everything works perfectly.</p></div>
+    <div class="why-card"><div class="why-icon">📞</div><h4>Quick Response</h4><p>Easy to reach on phone or WhatsApp. Prompt support during your entire rental period.</p></div>
+    <div class="why-card"><div class="why-icon">💰</div><h4>Flexible Rental Plans</h4><p>Daily, weekly and monthly options available — pay only for the duration you actually need.</p></div>
+    <div class="why-card"><div class="why-icon">🏆</div><h4>Top-Brand Equipment</h4><p>We stock equipment from globally recognized brands so quality is never a compromise.</p></div>
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section class="process-section">
+  <div class="section-label">How It Works</div>
+  <h2 class="section-title">Book in 4 Simple Steps</h2>
+  <p class="section-sub">Getting equipment rented is quick and hassle-free with Sravya Tech Rentals.</p>
+  <div class="process-steps">
+    <div class="step"><div class="step-num">1</div><h4>Share Your Requirement</h4><p>Tell us what equipment you need, for how long, and your location.</p></div>
+    <div class="step"><div class="step-num">2</div><h4>Get a Quote</h4><p>We'll confirm availability and send you the best price for your plan.</p></div>
+    <div class="step"><div class="step-num">3</div><h4>Confirm Booking</h4><p>Book easily via call or WhatsApp. We handle logistics from here.</p></div>
+    <div class="step"><div class="step-num">4</div><h4>Delivery & Setup</h4><p>We deliver, install, and demo the equipment at your doorstep.</p></div>
+  </div>
+</section>
+
+<!-- ── RENTAL PLANS ── -->
+<section id="plans">
+  <div class="section-label">Rental Plans</div>
+  <h2 class="section-title">Flexible Plans for Every Need</h2>
+  <p class="section-sub">Choose the rental duration that works for you — we offer transparent pricing with no hidden fees.</p>
+  <div class="plans-grid">
+    <div class="plan-card">
+      <div class="plan-icon">📅</div>
+      <h3>Daily Rental</h3>
+      <div class="plan-duration">Perfect for 1–3 day needs</div>
+      <p>Great for one-time events, seminars, functions, or short presentations.</p>
+      <ul class="plan-features">
+        <li class="plan-feature">Delivery & pickup included</li>
+        <li class="plan-feature">Installation & setup</li>
+        <li class="plan-feature">On-call support</li>
+        <li class="plan-feature">Tested equipment</li>
+      </ul>
+    </div>
+    <div class="plan-card featured">
+      <div class="plan-badge">Most Popular</div>
+      <div class="plan-icon">📆</div>
+      <h3>Weekly Rental</h3>
+      <div class="plan-duration">Perfect for 4–30 day needs</div>
+      <p>Ideal for training programmes, short projects, or temporary office setups.</p>
+      <ul class="plan-features">
+        <li class="plan-feature">Everything in Daily</li>
+        <li class="plan-feature">Better pricing per day</li>
+        <li class="plan-feature">Extended support hours</li>
+        <li class="plan-feature">Flexible return dates</li>
+      </ul>
+    </div>
+    <div class="plan-card">
+      <div class="plan-icon">🗓️</div>
+      <h3>Monthly Rental</h3>
+      <div class="plan-duration">Perfect for 1+ months</div>
+      <p>Best value for long-term office use, permanent classrooms, or ongoing projects.</p>
+      <ul class="plan-features">
+        <li class="plan-feature">Best price per day</li>
+        <li class="plan-feature">Priority support</li>
+        <li class="plan-feature">Free replacement if faulty</li>
+        <li class="plan-feature">Maintenance included</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA BAND ── -->
+<div class="cta-band">
+  <h2>Ready to Rent? Book Today!</h2>
+  <p>Call or WhatsApp us now to check availability and get an instant quote.</p>
+  <div class="cta-band-actions">
+    <a href="tel:+919986410966" class="white">📞 Call +91 99864 10966</a>
+    <a href="mailto:Sravyasuppliers@gmail.com" class="outline-white">✉️ Email Us</a>
+  </div>
+</div>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="contact-wrap">
+    <div class="contact-info">
+      <div class="section-label">Get In Touch</div>
+      <h2>Let's Find the Right Equipment for You</h2>
+      <p>Whether it's a printer for your office or a full AV setup for your event — reach out and we'll get back to you fast with the best quote.</p>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📍</div>
+        <div class="contact-detail-text">
+          <h5>Address</h5>
+          <p>08, Kokila Building, Ground Floor,<br>Coconut Garden, Old Bank Colony,<br>Konanakunte, Bangalore – 560062</p>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📱</div>
+        <div class="contact-detail-text">
+          <h5>Phone / WhatsApp</h5>
+          <a href="tel:+919986410966">+91 99864 10966</a>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">✉️</div>
+        <div class="contact-detail-text">
+          <h5>Email</h5>
+          <a href="mailto:Sravyasuppliers@gmail.com">Sravyasuppliers@gmail.com</a>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">🕐</div>
+        <div class="contact-detail-text">
+          <h5>Working Hours</h5>
+          <p>Mon – Sat: 9:00 AM – 7:00 PM</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="form-box">
+        <h3>Send an Enquiry / Book Now</h3>
+        <form class="contact-form" action="https://formspree.io/f/xzdybgdy" method="POST">
+          <input type="hidden" name="_subject" value="New enquiry from Sravya Tech Rentals website" />
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" />
+          <div class="form-row">
+            <div class="form-group"><label for="contact-name">Your Name</label><input id="contact-name" type="text" name="name" placeholder="Ramesh Kumar" autocomplete="name" required /></div>
+            <div class="form-group"><label for="contact-phone">Phone Number</label><input id="contact-phone" type="tel" name="phone" placeholder="+91 99864 10966" autocomplete="tel" required /></div>
+          </div>
+          <div class="form-group"><label for="contact-email">Email Address</label><input id="contact-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required /></div>
+          <div class="form-group">
+            <label for="contact-equipment">Equipment Needed</label>
+            <select id="contact-equipment" name="equipment_needed" required>
+              <option value="">Select equipment type</option>
+              <option value="Printer Rental">Printer Rental</option>
+              <option value="Projector Rental">Projector Rental</option>
+              <option value="Projector Screen Rental">Projector Screen Rental</option>
+              <option value="Speaker / Mic Rental">Speaker / Mic Rental</option>
+              <option value="Full AV Setup (Multiple Items)">Full AV Setup (Multiple Items)</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contact-duration">Rental Duration</label>
+            <select id="contact-duration" name="rental_duration" required>
+              <option value="">Select plan</option>
+              <option>Daily (1–3 days)</option>
+              <option>Weekly (up to 30 days)</option>
+              <option>Monthly (1+ months)</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-group"><label for="contact-message">Message / Additional Details</label><textarea id="contact-message" name="message" placeholder="Tell us your event date, location, quantity, or any special requirements..." required></textarea></div>
+          <p class="form-note">Share your date, location, quantity, and any setup needs so we can reply with the right quote quickly.</p>
+          <button class="form-submit" type="submit">Send Enquiry</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo-top">SRAVYA</div>
+      <div class="footer-logo-sub">Tech Rentals</div>
+      <p>Bangalore's trusted IT & AV equipment rental partner. Reliable, affordable, and delivered on time — every time.</p>
+      <a href="tel:+919986410966" style="display:inline-block;background:var(--orange);color:#fff;padding:10px 20px;border-radius:8px;font-weight:var(--font-weight-body);font-size:0.86rem;text-decoration:none;">📞 Call Us Now</a>
+    </div>
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="#about">Who We Are</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#brands">Brands</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#plans">Rental Plans</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Equipment</h5>
+      <ul>
+        <li><a href="#services">Printer Rentals</a></li>
+        <li><a href="#services">Projector Rentals</a></li>
+        <li><a href="#services">Screen Rentals</a></li>
+        <li><a href="#services">Speaker & Mic</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="tel:+919986410966">+91 99864 10966</a></li>
+        <li><a href="mailto:Sravyasuppliers@gmail.com">Sravyasuppliers@gmail.com</a></li>
+        <li><a href="#contact">Konanakunte, Bangalore</a></li>
+        <li><a href="#contact">560062, Karnataka</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 <span>Sravya Tech Rentals</span>. All rights reserved. Bangalore, Karnataka.</p>
+    <p>Made with ♥ for Bangalore businesses</p>
+  </div>
+</footer>
+
+<script>
+  const brandsSection = document.querySelector('#brands');
+  const brandCards = document.querySelectorAll('#brands .brand-card');
+
+  if (brandsSection) {
+    const brandsSub = brandsSection.querySelector('.section-sub');
+    if (brandsSub) {
+      brandsSub.textContent = 'Click any brand to open the image, see what it is, and view the key advantages.';
+    }
+
+    brandsSection.querySelectorAll('.brands-cat-title').forEach((title) => {
+      if (title.textContent.includes('Printer')) title.textContent = 'Printer Brands';
+      if (title.textContent.includes('Projector')) title.textContent = 'Projector Brands';
+      if (title.textContent.includes('Speaker')) title.textContent = 'Speaker / Audio Brands';
+    });
+  }
+
+  brandCards.forEach((card) => {
+    const toggle = card.querySelector('.brand-toggle');
+    if (!toggle) return;
+
+    toggle.addEventListener('click', () => {
+      const willOpen = !card.classList.contains('is-open');
+
+      brandCards.forEach((item) => {
+        item.classList.remove('is-open');
+        const button = item.querySelector('.brand-toggle');
+        if (button) button.setAttribute('aria-expanded', 'false');
+      });
+
+      if (willOpen) {
+        card.classList.add('is-open');
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
