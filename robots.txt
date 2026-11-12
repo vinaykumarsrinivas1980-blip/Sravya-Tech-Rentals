@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vinaykumarsrinivas1980-blip.github.io/Sravya-Tech-Rentals/sitemap.xml
+Sitemap: https://sravya-tech-rentals.vinaykumarsrinivas1980.workers.dev/sitemap.xml
