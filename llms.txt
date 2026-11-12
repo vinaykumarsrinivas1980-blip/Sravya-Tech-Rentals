@@ -1,0 +1,16 @@
+# Sravya Tech Rentals
+> Bangalore's trusted partner for IT & AV equipment rentals. Commercial printers, laser projectors, projector screens, and PA sound systems across Bangalore with same-day delivery, verified equipment, and full on-site setup support.
+
+## Services & Inventory
+- [Commercial Printers & Copiers](https://sravya-tech-rentals.vinaykumarsrinivas1980.workers.dev/#brands): Multifunction office copiers and printers (Canon, Epson, Brother, HP, Xerox) with flexible daily, weekly, and monthly corporate leases.
+- [Laser & 4K Projectors](https://sravya-tech-rentals.vinaykumarsrinivas1980.workers.dev/#brands): High-lumen office, conference, and event projectors (Epson, BenQ, Acer, ViewSonic).
+- [Tripod & Motorized Projector Screens](https://sravya-tech-rentals.vinaykumarsrinivas1980.workers.dev/#features): 6x4 ft to 10x8 ft high-gain projection screens for corporate meetings, classroom workshops, and private screenings.
+- [PA Sound Systems & Microphones](https://sravya-tech-rentals.vinaykumarsrinivas1980.workers.dev/#brands): Premium audio setups (JBL, Sony, Panasonic, Philips) with wireless handheld and collar mics for seminars, weddings, and parties.
+
+## Location & Contact
+- **Address**: Konanakunte, Bangalore, Karnataka - 560062
+- **Phone**: +91 99864 10966
+- **Email**: Sravyasuppliers@gmail.com
+- **Service Areas**: JP Nagar, Jayanagar, Electronic City, Whitefield, Koramangala, Indiranagar, HSR Layout, Bannerghatta Road, and across Greater Bangalore.
+- **Operating Hours**: Monday – Saturday: 09:00 AM – 06:00 PM IST
+- **Delivery**: Fast same-day doorstep delivery, installation, and testing across Bangalore.

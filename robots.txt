@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# Direct AI Agents to LLMs context
+# Sravya Tech Rentals Machine-Readable Index
+Allow: /llms.txt
+
 Sitemap: https://sravya-tech-rentals.vinaykumarsrinivas1980.workers.dev/sitemap.xml
