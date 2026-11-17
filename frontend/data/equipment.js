@@ -184,8 +184,8 @@ export const COMPANY_INFO = {
   phone: "+919986410966",
   phoneFormatted: "+91 99864 10966",
   email: "Sravyasuppliers@gmail.com",
-  address: "Konanakunte, Bangalore, Karnataka 560062",
-  hours: "Mon – Sat: 09:00 AM – 08:00 PM (24/7 on-call technician support)",
+  address: "08, Kokila Building, Ground Floor, Coconut Garden, Old Bank Colony, Konanakunte, Bangalore – 560062",
+  hours: "Mon – Sat: 09:00 AM – 07:00 PM (24/7 on-call technician support)",
   whatsappNumber: "919986410966",
   geo: {
     lat: 12.8848,

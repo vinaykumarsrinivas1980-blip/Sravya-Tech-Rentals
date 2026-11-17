@@ -14,10 +14,26 @@ export default function ContactSection() {
     botField: '' // Honeypot anti-spam resolving Goldfish Risk #9
   })
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (formData.botField) {
       return // Silently drop bot submissions
+    }
+    try {
+      await fetch('https://formspree.io/f/xzdybgdy', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          equipment: formData.equipment,
+          duration: formData.duration,
+          message: formData.message
+        })
+      })
+    } catch (err) {
+      // Fallback gracefully
     }
     setSubmitted(true)
   }

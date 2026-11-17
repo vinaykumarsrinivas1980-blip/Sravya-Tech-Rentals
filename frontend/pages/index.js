@@ -18,8 +18,8 @@ export default function Home() {
       {
         "@type": "LocalBusiness",
         "@id": "https://sravya-tech-rentals.vinaykumarsrinivas1980.workers.dev/#business",
-        "name": COMPANY_INFO.name,
-        "alternateName": COMPANY_INFO.legalName,
+        "name": "Sravya Tech Rentals",
+        "alternateName": "Sravya Suppliers Bangalore",
         "url": "https://sravya-tech-rentals.vinaykumarsrinivas1980.workers.dev/",
         "logo": "https://sravya-tech-rentals.vinaykumarsrinivas1980.workers.dev/assets/brands/canon.svg",
         "image": "https://sravya-tech-rentals.vinaykumarsrinivas1980.workers.dev/assets/brand-photos/epson-printer-1.webp",
@@ -30,7 +30,7 @@ export default function Home() {
         "paymentAccepted": "Cash, UPI, Net Banking, Credit Card",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Konanakunte",
+          "streetAddress": "08, Kokila Building, Ground Floor, Coconut Garden, Old Bank Colony, Konanakunte",
           "addressLocality": "Bangalore",
           "postalCode": "560062",
           "addressRegion": "Karnataka",
@@ -46,13 +46,97 @@ export default function Home() {
             "@type": "OpeningHoursSpecification",
             "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
             "opens": "09:00",
-            "closes": "20:00"
+            "closes": "19:00"
           }
         ],
-        "areaServed": BANGALORE_SERVICE_AREAS.map(area => ({
-          "@type": "Place",
-          "name": `${area}, Bangalore`
-        }))
+        "areaServed": [
+          "Bangalore", "Konanakunte", "JP Nagar", "Jayanagar", "Bannerghatta Road", 
+          "Electronic City", "Whitefield", "Koramangala", "Indiranagar", "HSR Layout"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Rental Catalog",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Commercial Printer Rental (Laser / Inkjet / Multifunction Heavy Duty)",
+                "description": "High-speed laser & all-in-one printers for corporate offices, events, exams, and projects."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Full HD / 4K Laser Projector Rental",
+                "description": "High-lumen crystal clear projectors for conferences, seminars, movie screenings, and corporate presentations."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Motorized & Tripod Projector Screen Rental",
+                "description": "Wide viewing angle high-contrast projection screens from 6ft to 12ft."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "PA System, Speaker & Cordless Collar/Handheld Mic Rental",
+                "description": "Professional sound systems, wireless microphones, and portable active speakers for indoor and outdoor events."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://sravya-tech-rentals.vinaykumarsrinivas1980.workers.dev/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How quickly can you deliver tech equipment in Bangalore?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We provide same-day fast delivery across South Bangalore (Konanakunte, JP Nagar, Jayanagar, Bannerghatta Road, HSR) and scheduled delivery across Greater Bangalore including Whitefield and Electronic City."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What rental duration options are available?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We offer daily rentals (1–3 days for events and shoots), weekly rentals (up to 30 days for short projects), and monthly corporate rental contracts with customized pricing and complimentary maintenance."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you provide on-site setup and testing?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Every projector, sound system, and printer is inspected before dispatch. Our technical team handles complete on-site installation, connectivity testing, and guidance so your event or office operation runs seamlessly."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What equipment is available for rent at Sravya Tech Rentals?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our inventory includes commercial Laser & Inkjet Printers (Canon, HP, Epson, Brother, Xerox), high-lumen Projectors (BenQ, Epson, Acer, ViewSonic), Projection Screens, and Sound Systems with wireless mics (JBL, Sony, Panasonic, Philips)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I book or request a rental quote?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can message us directly on WhatsApp at +91 99864 10966, email Sravyasuppliers@gmail.com, or fill out the enquiry form on our website with your event dates and required items."
+            }
+          }
+        ]
       }
     ]
   }
@@ -61,13 +145,14 @@ export default function Home() {
     <>
       <Head>
         {/* Core Primary Meta */}
-        <title>Sravya Tech Rentals – IT &amp; AV Equipment Rentals Bangalore | Printers, Projectors, PA Systems</title>
+        <title>Sravya Tech Rentals – IT &amp; AV Equipment Rentals in Bangalore | Printers, Projectors &amp; Sound</title>
         <meta
           name="description"
-          content="Rent commercial printers, laser projectors, screens, and PA sound systems across Bangalore. Same-day delivery to Whitefield, Koramangala, Indiranagar, Electronic City & Konanakunte."
+          content="Bangalore's trusted partner for IT &amp; AV equipment rentals. Rent commercial printers, laser projectors, projector screens, and PA sound systems across JP Nagar, Jayanagar, Electronic City, Whitefield &amp; Konanakunte. Fast delivery, 100% verified equipment. Call +91 99864 10966."
         />
-        <meta name="keywords" content="IT equipment rental Bangalore, printer rental Bangalore, projector rental Bangalore, projector screen rental Bangalore, sound system rental Bangalore, speaker mic rental Bangalore, commercial copier on rent, tech rentals Bangalore" />
+        <meta name="keywords" content="IT equipment rental Bangalore, printer rental Bangalore, projector rental Bangalore, projector screen rental Bangalore, sound system rental Bangalore, speaker mic rental Bangalore, audio equipment rental Bangalore, commercial printer on rent, tech rentals Bangalore" />
         <meta name="author" content="Sravya Tech Rentals" />
+        <meta name="google-site-verification" content="googleaea003a7e3ee87f3" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://sravya-tech-rentals.vinaykumarsrinivas1980.workers.dev/" />
         
@@ -78,19 +163,19 @@ export default function Home() {
         <meta name="ICBM" content="12.8848, 77.5683" />
 
         {/* Open Graph Meta Tags */}
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="business.business" />
         <meta property="og:title" content="Sravya Tech Rentals – IT &amp; AV Equipment Rentals in Bangalore" />
-        <meta property="og:description" content="Commercial printers, projectors, and PA systems on rent across Bangalore with same-day delivery." />
+        <meta property="og:description" content="Rent commercial printers, laser projectors, projector screens, and PA sound systems across Bangalore with same-day delivery and testing." />
         <meta property="og:url" content="https://sravya-tech-rentals.vinaykumarsrinivas1980.workers.dev/" />
         <meta property="og:site_name" content="Sravya Tech Rentals" />
         <meta property="og:locale" content="en_IN" />
-        <meta property="og:image" content="/assets/brand-photos/canon-printer-1.webp" />
+        <meta property="og:image" content="https://sravya-tech-rentals.vinaykumarsrinivas1980.workers.dev/assets/brands/canon.svg" />
 
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Sravya Tech Rentals – IT &amp; AV Equipment Rentals in Bangalore" />
-        <meta name="twitter:description" content="Rent commercial printers, projectors, screens, and audio setups at affordable daily &amp; monthly rates across Bangalore." />
-        <meta name="twitter:image" content="/assets/brand-photos/canon-printer-1.webp" />
+        <meta name="twitter:description" content="Bangalore's trusted equipment rental partner. Rent printers, projectors, screens, and audio setups at affordable daily &amp; monthly rates." />
+        <meta name="twitter:image" content="https://sravya-tech-rentals.vinaykumarsrinivas1980.workers.dev/assets/brands/canon.svg" />
 
         {/* JSON-LD Structured Data Schema */}
         <script
