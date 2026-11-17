@@ -1,0 +1,34 @@
+{
+  "project_name": "Sravya Tech Rentals",
+  "allowed_write_scope": [
+    "frontend/**/*",
+    "fiverr orders/sravya-tech-rentals/**/*"
+  ],
+  "acceptance_criteria": [
+    {
+      "id": "AC-1",
+      "description": "Next.js App Router project configured with Tailwind CSS, shadcn/ui primitives, and Lucide icons",
+      "validator": "package-check"
+    },
+    {
+      "id": "AC-2",
+      "description": "All 9 equipment catalog items render with images, specs, badges, and modal dialogs",
+      "validator": "component-inspection"
+    },
+    {
+      "id": "AC-3",
+      "description": "Interactive rental quote calculator calculates daily/weekly/monthly rates and generates direct WhatsApp link",
+      "validator": "calculator-logic-check"
+    },
+    {
+      "id": "AC-4",
+      "description": "Bangalore LocalBusiness JSON-LD schema is embedded and valid",
+      "validator": "schema-validator"
+    },
+    {
+      "id": "AC-5",
+      "description": "Clean production build with zero errors or warnings",
+      "validator": "npm run build"
+    }
+  ]
+}
