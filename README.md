@@ -5,11 +5,20 @@ Official full-stack web platform for **Sravya Tech Rentals** (Sravya Suppliers).
 ---
 
 ## 🚀 Live Production & Tech Stack
+- **Live Deployment:** [sravya-tech-rentals.vinaykumarsrinivas1980.workers.dev](https://sravya-tech-rentals.vinaykumarsrinivas1980.workers.dev/)
+- **Built by:** Vinay Kumar — [Next.js 14 Web Developer & Local SEO Engineer on Fiverr](https://www.fiverr.com/s/EmrDoQe)
 - **Framework:** Next.js 14+ (App & Static Optimization)
 - **Styling:** Tailwind CSS v3 (Enterprise High-Contrast Accessible Palette)
 - **Icons:** Lucide React
 - **Design Tokens:** `shadcn/ui` UI specifications & `Impeccable` design standards
-- **Hosting / Deployment:** Vercel or Cloudflare Pages (`output: export` ready)
+- **Hosting / Deployment:** Cloudflare Workers Global Edge Network (`output: export` ready)
+
+---
+
+## 💼 Hire the Developer
+Looking for a modern, high-converting Next.js 14 website with sub-second speeds and turnkey Local SEO?  
+👉 **[Order directly through my verified Fiverr gig](https://www.fiverr.com/s/EmrDoQe)**
+
 
 ---
 
